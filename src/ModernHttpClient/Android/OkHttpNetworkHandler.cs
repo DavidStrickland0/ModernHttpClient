@@ -35,7 +35,7 @@ namespace ModernHttpClient
         public NativeMessageHandler(bool throwOnCaptiveNetwork, bool customSSLVerification, NativeCookieHandler cookieHandler = null)
         {
             this.throwOnCaptiveNetwork = throwOnCaptiveNetwork;
-
+            client.SetSslSocketFactory(new ImprovedSSLSocketFactory());
             if (customSSLVerification) client.SetHostnameVerifier(new HostnameVerifier());
             noCacheCacheControl = (new CacheControl.Builder()).NoCache().Build();
         }
@@ -268,6 +268,7 @@ namespace ModernHttpClient
         /// <returns><c>true</c>, if client ciphers was verifyed, <c>false</c> otherwise.</returns>
         /// <param name="hostname"></param>
         /// <param name="session"></param>
+        [Obsolete("Uses ServicePointManager.ClientCipherSuitesCallback")]
         static bool verifyClientCiphers(string hostname, ISSLSession session)
         {
             var callback = ServicePointManager.ClientCipherSuitesCallback;

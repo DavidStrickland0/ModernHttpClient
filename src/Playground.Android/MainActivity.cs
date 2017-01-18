@@ -41,7 +41,7 @@ namespace Playground.Android
                 progress.Progress = progressOffset;
             });
         }
-
+        [Obsolete("Uses ServicePointManager.ClientCipherSuitesCallback")]
         protected override void OnCreate (Bundle bundle)
         {
             base.OnCreate (bundle);
@@ -99,8 +99,8 @@ namespace Playground.Android
                 try {
                     //var url = "https://tv.eurosport.com";
                     //var url = "https://github.com/downloads/nadlabak/android/cm-9.1.0a-umts_sholes.zip";
-                    var url = "https://github.com/paulcbetts/ModernHttpClient/releases/download/0.9.0/ModernHttpClient-0.9.zip";
-
+                    //var url = "https://github.com/paulcbetts/ModernHttpClient/releases/download/0.9.0/ModernHttpClient-0.9.zip";
+                    var url = "https://api-3t.sandbox.paypal.com/nvp";
                     var request = new HttpRequestMessage(HttpMethod.Get, url);
                     handler.RegisterForProgress(request, HandleDownloadProgress);
 

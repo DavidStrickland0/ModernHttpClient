@@ -17,6 +17,7 @@ namespace Playground.iOS
 {
     public partial class Playground_iOSViewController : UIViewController
     {
+        [Obsolete("Uses ServicePointManager.ClientCipherSuitesCallback")]
         public Playground_iOSViewController () : base ("Playground_iOSViewController", null)
         {
             /*
